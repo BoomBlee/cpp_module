@@ -6,13 +6,14 @@
 /*   By: kcaraway <kcaraway@student.21-school.r>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 05:19:13 by kcaraway          #+#    #+#             */
-/*   Updated: 2021/01/18 10:48:23 by kcaraway         ###   ########.fr       */
+/*   Updated: 2021/01/19 06:40:25 by kcaraway         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<iostream>
 #include<string>
 #include "PhoneBook.hpp"
+
 int	main(){
 	std::string str;
 	phoneBook	book[8];

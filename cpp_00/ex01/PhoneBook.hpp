@@ -6,7 +6,7 @@
 /*   By: kcaraway <kcaraway@student.21-school.r>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 06:02:00 by kcaraway          #+#    #+#             */
-/*   Updated: 2021/01/18 10:52:51 by kcaraway         ###   ########.fr       */
+/*   Updated: 2021/01/19 03:51:59 by kcaraway         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ public:
 	void func(std::string msg, std::string &name);
 	void functionPrint(int k);
 	void functionPrintFull(int k);
+
 };
 
 phoneBook::phoneBook(/* args */) {
