@@ -1,0 +1,122 @@
+#pragma once
+
+#include <iostream>
+#include <sstream>
+
+#define RED "\33[1;31m"
+#define GREEN "\33[1;32m"
+#define YELLOW "\33[1;33m"
+#define BLUE "\33[1;34m"
+#define RESET "\33[0m"
+
+
+class ClapTrap
+{
+protected:
+	unsigned int hitPoints;
+	unsigned int maxHitPoints;
+	unsigned int energyPoints;
+	unsigned int maxEnergyPoints;
+	unsigned int level;
+	std::string name;
+	unsigned int meleeAttackDamage;
+	unsigned int rangedAttackDamage;
+	unsigned int armorDamageReduction;
+public:
+	ClapTrap(std::string name);
+	ClapTrap(const ClapTrap &obj);
+	ClapTrap();
+	ClapTrap(unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, std::string);
+	~ClapTrap();
+	virtual void rangedAttack(std::string const & target);
+	virtual void meleeAttack(std::string const & target);
+	virtual void takeDamage(unsigned int amount);
+	virtual void beRepaired(unsigned int amount);
+	std::string getName() const;
+	ClapTrap &operator=(const ClapTrap &obj);
+};
+
+ClapTrap &ClapTrap::operator=(const ClapTrap &obj) {
+	this->name = obj.name;
+	this->hitPoints = obj.hitPoints;
+	this->maxHitPoints = obj.maxHitPoints;
+	this->energyPoints = obj.energyPoints;
+	this->maxEnergyPoints = obj.maxEnergyPoints;
+	this->level = obj.level;
+	this->meleeAttackDamage = obj.meleeAttackDamage;
+	this->rangedAttackDamage = obj.rangedAttackDamage;
+	this->armorDamageReduction = obj.armorDamageReduction;
+}
+
+ClapTrap::ClapTrap(std::string name) : name(name)
+{
+	std::cout << "ClapTrap created" << std::endl;
+}
+
+ClapTrap::ClapTrap() {
+	std::cout << "ClapTrap created" << std::endl;
+}
+
+ClapTrap::ClapTrap(const ClapTrap &obj) {
+	std::cout << "Copy constructor" << std::endl;
+	*this = obj;
+}
+
+ClapTrap::~ClapTrap() {
+	std::cout << "ClapTrap destroy" << std::endl;
+}
+
+void ClapTrap::rangedAttack(std::string const & target) {
+	std::cout << "ClapTrap " << name << " attacks " << target << " at range, causing " << rangedAttackDamage << " points of damage!" << std::endl;
+}
+
+void ClapTrap::meleeAttack(std::string const & target) {
+	std::cout << "ClapTrap " << name << " attacks " << target << " at melee, causing " << meleeAttackDamage << " points of damage!" << std::endl;
+}
+
+void ClapTrap::takeDamage(unsigned int amount) {
+	if (amount < hitPoints + armorDamageReduction) {
+		hitPoints -= amount - armorDamageReduction;
+		std::cout << "Damage " << amount << " HP lost " << hitPoints << std::endl;
+	}
+	else if (hitPoints == 0)
+		std::cout << "Stop shooting i'm dead" << std::endl;
+	else {
+		hitPoints = 0;
+		std::cout << "I'm DEAD!!!" << std::endl;
+	}
+}
+
+void ClapTrap::beRepaired(unsigned int amount) {
+	if (amount + hitPoints < maxHitPoints) {
+		hitPoints += amount;
+		if (hitPoints != amount)
+			std::cout << "Repaired " << amount << " Hit Points" << std::endl;
+		else
+			std::cout << "Sweet life juice!" << std::endl;
+	}
+	else if (hitPoints == maxHitPoints){
+		std::cout << "Stop repaired full HP" << std::endl;
+	}
+	else if (amount + hitPoints >= maxHitPoints) {
+		hitPoints = maxHitPoints;
+		std::cout << "Max Hit Point" << std::endl;
+	}
+}
+
+ClapTrap::ClapTrap(unsigned int hitPoints, unsigned int maxHitPoints, unsigned int energyPoints, unsigned int maxEnergyPoints, unsigned int level, unsigned int meleeAttackDamage, unsigned int rangedAttackDamage, unsigned int armorDamageReduction, std::string name) {
+	this->hitPoints = hitPoints;
+	this->maxHitPoints = maxHitPoints;
+	this->energyPoints = energyPoints;
+	this->maxEnergyPoints = maxEnergyPoints;
+	this->level = level;
+	this->meleeAttackDamage = meleeAttackDamage;
+	this->rangedAttackDamage = rangedAttackDamage;
+	this->armorDamageReduction = armorDamageReduction;
+	this->name = name;
+	std::cout << name << " created" << std::endl;
+}
+
+std::string ClapTrap::getName() const{
+	return name;
+}
