@@ -1,21 +1,22 @@
 #pragma once
 
 #include <iostream>
+#include "ClapTrap.hpp"
 
-class ScavTrap
+#define RED "\33[1;31m"
+#define GREEN "\33[1;32m"
+#define YELLOW "\33[1;33m"
+#define BLUE "\33[1;34m"
+#define CIAN "\33[1;36m"
+#define RESET "\33[0m"
+
+
+class ScavTrap : public ClapTrap
 {
-private:
-	unsigned int hitPoints;
-	unsigned int maxHitPoints;
-	unsigned int energyPoints;
-	unsigned int maxEnergyPoints;
-	unsigned int level;
-	std::string name;
-	unsigned int meleeAttackDamage;
-	unsigned int rangedAttackDamage;
-	unsigned int armorDamageReduction;
 public:
 	ScavTrap(std::string name);
+	ScavTrap(const ScavTrap &obj);
+	ScavTrap();
 	~ScavTrap();
 	virtual void rangedAttack(std::string const & target);
 	virtual void meleeAttack(std::string const & target);
@@ -24,21 +25,16 @@ public:
 	void challengeNewcomer(std::string const & target);
 };
 
-ScavTrap::ScavTrap(std::string name) : name(name)
-{
-	hitPoints = 100;
-	maxHitPoints = 100;
-	energyPoints = 50;
-	maxEnergyPoints = 50;
-	level = 1;
-	meleeAttackDamage = 20;
-	rangedAttackDamage = 15;
-	armorDamageReduction = 3;
-	std::cout << "ScavTrap created" << std::endl;
+ScavTrap::ScavTrap(std::string name) : ClapTrap(100,100,50,50,1,20,15,3,name) {
+	std::cout << GREEN << name << " created" << RESET << std::endl;
+}
+
+ScavTrap::ScavTrap() : ClapTrap(100,100,50,50,1,20,15,3,"ScavTrap") {
+	std::cout << GREEN << "ScavTrap created" << RESET <<std::endl;
 }
 
 ScavTrap::~ScavTrap() {
-	std::cout << "ScavTrap destroy" << std::endl;
+	std::cout << RED << "ScavTrap destroy" << RESET << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &obj) {
@@ -47,11 +43,11 @@ ScavTrap::ScavTrap(const ScavTrap &obj) {
 }
 
 void ScavTrap::rangedAttack(std::string const & target) {
-	std::cout << "FR4G-TP " << name << " attacks " << target << " at range, causing " << rangedAttackDamage << " points of damage!" << std::endl;
+	std::cout << "SL4V-TP " << name << " attacks " << target << " at range, causing " << rangedAttackDamage << " points of damage!" << std::endl;
 }
 
 void ScavTrap::meleeAttack(std::string const & target) {
-	std::cout << "FR4G-TP " << name << " attacks " << target << " at melee, causing " << meleeAttackDamage << " points of damage!" << std::endl;
+	std::cout << "SL4V-TP " << name << " attacks " << target << " at melee, causing " << meleeAttackDamage << " points of damage!" << std::endl;
 }
 
 void ScavTrap::takeDamage(unsigned int amount) {
@@ -85,10 +81,10 @@ void ScavTrap::beRepaired(unsigned int amount) {
 }
 
 void ScavTrap::challengeNewcomer(std::string const & target) {
-
+	std::string str[] = {"1", "2", "3", "4", "5"};
 	if (energyPoints - 25 >= 0) {
 		energyPoints -= 25;
-		std::cout << "придумать несколько задач" << std::endl;
+		std::cout << str[rand() % 5] << std::endl;
 	}
 	else {
 		std::cout << "low energy points" <<std::endl;

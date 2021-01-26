@@ -1,19 +1,17 @@
 #pragma once
 
 #include <iostream>
+#include "ClapTrap.hpp"
 
-class FragTrap
+#define RED "\33[1;31m"
+#define GREEN "\33[1;32m"
+#define YELLOW "\33[1;33m"
+#define BLUE "\33[1;34m"
+#define RESET "\33[0m"
+
+
+class FragTrap : public ClapTrap
 {
-private:
-	unsigned int hitPoints;
-	unsigned int maxHitPoints;
-	unsigned int energyPoints;
-	unsigned int maxEnergyPoints;
-	unsigned int level;
-	std::string name;
-	unsigned int meleeAttackDamage;
-	unsigned int rangedAttackDamage;
-	unsigned int armorDamageReduction;
 public:
 	FragTrap(std::string name);
 	FragTrap(const FragTrap &obj);
@@ -24,44 +22,20 @@ public:
 	virtual void takeDamage(unsigned int amount);
 	virtual void beRepaired(unsigned int amount);
 	void vaulthunter_dot_exe(std::string const & target);
+	FragTrap &operator=(const FragTrap &obj);
 };
 
 FragTrap &FragTrap::operator=(const FragTrap &obj) {
-	name = obj.name;
-	hitPoints = obj.hitPoints;
-	maxHitPoints = 100;
-	energyPoints = 100;
-	maxEnergyPoints = 100;
-	level = 1;
-	meleeAttackDamage = 30;
-	rangedAttackDamage = 20;
-	armorDamageReduction = 5;
+	ClapTrap::operator=(obj);
+	return *this;
 }
 
-FragTrap::FragTrap(std::string name) : name(name)
-{
-	hitPoints = 100;
-	maxHitPoints = 100;
-	energyPoints = 100;
-	maxEnergyPoints = 100;
-	level = 1;
-	meleeAttackDamage = 30;
-	rangedAttackDamage = 20;
-	armorDamageReduction = 5;
-	std::cout << "FR4G-TP created" << std::endl;
+FragTrap::FragTrap(std::string name) : ClapTrap(100,100,100,100,1,30,20,5,name) {
+	std::cout << GREEN << "FR4G-TP created" << RESET << std::endl;
 }
 
-FragTrap::FragTrap() {
-	name = "Железяка";
-	hitPoints = 100;
-	maxHitPoints = 100;
-	energyPoints = 100;
-	maxEnergyPoints = 100;
-	level = 1;
-	meleeAttackDamage = 30;
-	rangedAttackDamage = 20;
-	armorDamageReduction = 5;
-	std::cout << "FR4G-TP created" << std::endl;
+FragTrap::FragTrap()  : ClapTrap(100,100,100,100,1,30,20,5,"Железяка") {
+	std::cout << GREEN << "FR4G-TP created" << RESET << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap &obj) {
@@ -70,7 +44,7 @@ FragTrap::FragTrap(const FragTrap &obj) {
 }
 
 FragTrap::~FragTrap() {
-	std::cout << "FR4G-TP destroy" << std::endl;
+	std::cout << RED << "FR4G-TP destroy" << RESET << std::endl;
 }
 
 void FragTrap::rangedAttack(std::string const & target) {
@@ -112,10 +86,10 @@ void FragTrap::beRepaired(unsigned int amount) {
 }
 
 void FragTrap::vaulthunter_dot_exe(std::string const & target) {
-	
+	std::string str[] = {"1", "2", "3", "4", "5"};
 	if (energyPoints - 25 >= 0) {
 		energyPoints -= 25;
-		
+		std::cout << str[rand() % 5] << std::endl;
 	}
 	else {
 		std::cout << "low energy points" <<std::endl;
