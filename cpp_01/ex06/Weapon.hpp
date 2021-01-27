@@ -1,6 +1,4 @@
-
-#ifndef WEAPON_HPP
-# define WEAPON_HPP
+#pragma once
 # include <iostream>
 
 class Weapon
@@ -13,5 +11,3 @@ public:
 	Weapon(std::string);
 	~Weapon();
 };
-
-#endif

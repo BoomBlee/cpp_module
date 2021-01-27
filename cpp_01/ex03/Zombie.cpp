@@ -6,13 +6,11 @@ Zombie::Zombie(){
 	type = randomType();
 }
 
-Zombie::Zombie(std::string name, std::string type) : name(name), type(type){
-}
-
 Zombie::~Zombie(){
+	std::cout << "delete zombie" << std::endl;
 }
 
-std::string Zombie::randomName(){
+	std::string Zombie::randomName(){
 	std::string name[5]={"name1","name2","name3","name4","name5"};
 	int i=rand()%5;
 	return name[i];
@@ -25,5 +23,5 @@ std::string Zombie::randomType(){
 }
 
 void Zombie::announce(){
-	std::cout << "<" << name << " (" << type << ")>" << "Braiiiiiiinnnssss..." << std::endl;
+	std::cout << "<" << GREEN << name << RESET << " (" << YELLOW << type << RESET << ")>" << RED <<"Braiiiiiiinnnssss..." << RESET << std::endl;
 }

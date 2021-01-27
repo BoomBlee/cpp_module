@@ -1,3 +1,4 @@
+#include "Brain.hpp"
 
 Brain::Brain(/* args */)
 {

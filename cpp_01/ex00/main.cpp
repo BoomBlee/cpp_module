@@ -8,6 +8,9 @@ void ponyOnHeap(){
 
 void ponyOnStack(){
 	Pony mutant(6, 2, 3, "Blue");
+	mutant.deleteLeg();
+	mutant.setColor("White");
+	mutant.deleteLeg();
 }
 
 int main(){

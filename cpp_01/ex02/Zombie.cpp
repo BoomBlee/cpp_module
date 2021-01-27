@@ -1,7 +1,7 @@
 #include<iostream>
 #include"Zombie.hpp"
 
-Zombie::Zombie(std::string name, std::string type) : name(name), type(type){
+Zombie::Zombie(std::string name, std::string type) : name(name), type(type) {
 }
 
 Zombie::~Zombie(){
@@ -20,5 +20,5 @@ std::string Zombie::randomType(){
 }
 
 void Zombie::announce(){
-	std::cout << "<" << name << " (" << type << ")>" << "Braiiiiiiinnnssss..." << std::endl;
+	std::cout << "<" << GREEN << name << RESET << " (" << YELLOW << type << RESET << ")>" << RED <<"Braiiiiiiinnnssss..." << RESET << std::endl;
 }

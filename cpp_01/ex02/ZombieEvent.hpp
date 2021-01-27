@@ -1,3 +1,4 @@
+#pragma once
 #include"Zombie.hpp"
 
 class ZombieEvent
@@ -10,5 +11,4 @@ public:
 	Zombie * newZombie(std::string name);
 	ZombieEvent(/* args */);
 	~ZombieEvent();
-	Zombie * randomChump();
 };

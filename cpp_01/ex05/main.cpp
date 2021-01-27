@@ -1,3 +1,4 @@
+#include "Brain.hpp"
 #include "Human.hpp"
 
 int main()

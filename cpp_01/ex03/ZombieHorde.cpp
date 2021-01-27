@@ -6,8 +6,8 @@ ZombieHorde::ZombieHorde(size_t num)
 	number = num;
 }
 
-ZombieHorde::~ZombieHorde()
-{
+ZombieHorde::~ZombieHorde() {
+	delete [] zomb;
 }
 
 void ZombieHorde::announce(){

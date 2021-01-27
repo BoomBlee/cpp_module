@@ -1,3 +1,4 @@
+#include "HumanA.hpp"
 
 HumanA::HumanA(std::string name1, Weapon &weapon1) : name(name1), weapon(weapon1)
 {

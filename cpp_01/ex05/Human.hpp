@@ -1,3 +1,4 @@
+#pragma once
 #include "Brain.hpp"
 
 class Human

@@ -1,3 +1,4 @@
+#include"Zombie.hpp"
 #include "ZombieHorde.hpp"
 
 int main(){
@@ -5,6 +6,5 @@ int main(){
 	ZombieHorde zomb(10);
 
 	zomb.announce();
-
 	return 0;
 }
