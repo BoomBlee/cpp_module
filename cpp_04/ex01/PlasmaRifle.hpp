@@ -16,7 +16,7 @@ public:
 	std::string getName() const;
 	int getAPCost() const;
 	int getDamage() const;
-	virtual void attack() const;
+	void attack() const;
 	PlasmaRifle &operator=(const PlasmaRifle&);
 };
 
@@ -49,4 +49,12 @@ PlasmaRifle &PlasmaRifle::operator=(const PlasmaRifle &obj) {
 
 void PlasmaRifle::attack() const {
 	std::cout << "* piouuu piouuu piouuu *" << std::endl;
+}
+
+int PlasmaRifle::getAPCost() const {
+	return AP;
+}
+
+int PlasmaRifle::getDamage() const {
+	return damage;
 }

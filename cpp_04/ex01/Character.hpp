@@ -26,6 +26,7 @@ public:
 Character::Character() {
 	// std::cout << "Default constructor called" << std::endl;
 	AP = 40;
+	weapon = NULL;
 }
 
 Character::Character(const Character &obj) {
@@ -35,6 +36,8 @@ Character::Character(const Character &obj) {
 
 Character::Character(std::string const & name) : name(name) {
 	// std::cout << "HP: " << hp << " Type: " << type << std::endl;
+	AP = 40;
+	weapon = NULL;
 }
 
 Character::~Character() {
@@ -56,10 +59,10 @@ void Character::recoverAP() {
 }
 
 void Character::attack(Enemy* enemy) {
-	if (weapon)
+	if (!weapon)
 		return ;
-	std::cout << name << " attacks " << enemy->getType() << " with a " << weapon->getName() << std::endl;
 	if (AP - weapon->getAPCost() > 9) {
+		std::cout << name << " attacks " << enemy->getType() << " with a " << weapon->getName() << std::endl;
 		AP -= weapon->getAPCost();
 		enemy->takeDamage(weapon->getDamage());
 		if (enemy->getHP() < 1)
@@ -73,12 +76,11 @@ void Character::equip(AWeapon* _weapon) {
 
 std::string Character::displayMessange() const {
 	std::string str;
-	// std::string strAP = std::to_string(AP);
-	// std::cout << "res:" << std::to_string(AP) <<std::endl;
-	if (!weapon)
-		str = name + " has " + "40" + " AP and wields a " + weapon->getName();
+
+	if (weapon)
+		str = name + " has " + std::to_string(AP) + " AP and wields a " + weapon->getName();
 	else
-		str = name + " has " + "0000" + " AP and is unarmed";
+		str = name + " has " + std::to_string(AP) + " AP and is unarmed";
 	return str;
 }
 

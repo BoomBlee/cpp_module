@@ -2,7 +2,7 @@
 
 #include "AWeapon.hpp"
 
-class PowerFist : virtual public AWeapon
+class PowerFist : public AWeapon
 {
 private:
 	std::string name;
@@ -49,4 +49,12 @@ PowerFist &PowerFist::operator=(const PowerFist &obj) {
 
 void PowerFist::attack() const {
 	std::cout << "* pschhh... SBAM! *" << std::endl;
+}
+
+int PowerFist::getAPCost() const {
+	return AP;
+}
+
+int PowerFist::getDamage() const {
+	return damage;
 }
