@@ -12,6 +12,7 @@ int main(){
 
 	std::cout << "---------------" << std::endl;
 	p = "rewrite";
+	std::cout << *pointer << std::endl; 
 	std::cout << reference << std::endl;
 	
 	reference = t; //p=t
@@ -21,6 +22,6 @@ int main(){
 	std::cout << "---------------" << std::endl;
 	pointer = &t;
 	std::cout << *pointer << std::endl; 
-	std::cout << t << std::endl; 
+	std::cout << t << std::endl;
 
 }
