@@ -1,12 +1,8 @@
 #pragma once
-
 #include "Enemy.hpp"
 
-class SuperMutant : virtual public Enemy
+class SuperMutant : public Enemy
 {
-private:
-	int hp;
-	std::string type;
 public:
 	SuperMutant();
 	SuperMutant(const SuperMutant &);
@@ -18,18 +14,16 @@ public:
 	SuperMutant &operator=(const SuperMutant&);
 };
 
-SuperMutant::SuperMutant() {
-	hp = 170;
-	type = "SuperMutant";
+SuperMutant::SuperMutant() : Enemy(170, "SuperMutant") {
 	std::cout << "Gaaah. Me want smash heads!" << std::endl;
 }
 
-SuperMutant::SuperMutant(const SuperMutant &obj) {
+SuperMutant::SuperMutant(const SuperMutant &obj) : Enemy(obj) {
 	// std::cout << "Copy constructor called" << std::endl;
 	*this = obj;
 }
 
-SuperMutant::SuperMutant(int hp, std::string const & type) : hp(hp), type(type) {
+SuperMutant::SuperMutant(int hp, std::string const & type) : Enemy(hp, type) {
 	// std::cout << "HP: " << hp << " Type: " << type << std::endl;
 }
 
@@ -38,21 +32,18 @@ SuperMutant::~SuperMutant() {
 }
 
 SuperMutant &SuperMutant::operator=(const SuperMutant &obj) {
-	type = obj.type;
-	hp = obj.hp;
+	Enemy::operator=(obj);
 	return *this;
 }
 
 std::string SuperMutant::getType() const {
-	return type;
+	return Enemy::getType();
 }
 
 int SuperMutant::getHP() const {
-	return hp;
+	return Enemy::getHP();
 }
 
 void SuperMutant::takeDamage(int damage) {
-	if (damage < 4)
-		return ;
-	this->hp -= damage - 3;
+	Enemy::takeDamage(damage - 3);
 }

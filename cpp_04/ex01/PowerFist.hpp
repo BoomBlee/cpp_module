@@ -4,10 +4,6 @@
 
 class PowerFist : public AWeapon
 {
-private:
-	std::string name;
-	int damage;
-	int AP;
 public:
 	PowerFist();
 	PowerFist(const PowerFist &);
@@ -20,14 +16,11 @@ public:
 	PowerFist &operator=(const PowerFist&);
 };
 
-PowerFist::PowerFist() {
+PowerFist::PowerFist() : AWeapon("Power Fist", 8, 50) {
 	// std::cout << "Default constructor called" << std::endl;
-	name = "Plasma Rifle";
-	damage = 21;
-	AP = 5;
 }
 
-PowerFist::PowerFist(const PowerFist &obj) {
+PowerFist::PowerFist(const PowerFist &obj) : AWeapon(obj) {
 	// std::cout << "Copy constructor called" << std::endl;
 	*this = obj;
 }
@@ -41,20 +34,19 @@ PowerFist::~PowerFist() {
 }
 
 PowerFist &PowerFist::operator=(const PowerFist &obj) {
-	name = obj.name;
-	damage = obj.damage;
-	AP = obj.AP;
+	AWeapon::operator=(obj);
 	return *this;
 }
 
 void PowerFist::attack() const {
+	
 	std::cout << "* pschhh... SBAM! *" << std::endl;
 }
 
 int PowerFist::getAPCost() const {
-	return AP;
+	return AWeapon::getAPCost();
 }
 
 int PowerFist::getDamage() const {
-	return damage;
+	return AWeapon::getDamage();
 }

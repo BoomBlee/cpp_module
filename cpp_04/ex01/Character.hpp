@@ -61,12 +61,13 @@ void Character::recoverAP() {
 void Character::attack(Enemy* enemy) {
 	if (!weapon)
 		return ;
-	if (AP - weapon->getAPCost() > 9) {
+	if (AP - weapon->getAPCost() >= 0) {
 		std::cout << name << " attacks " << enemy->getType() << " with a " << weapon->getName() << std::endl;
 		AP -= weapon->getAPCost();
+		weapon->attack();
 		enemy->takeDamage(weapon->getDamage());
 		if (enemy->getHP() < 1)
-			enemy->Enemy::~Enemy();
+			enemy->~Enemy();
 	}
 }
 

@@ -11,7 +11,7 @@ public:
 	Enemy();
 	Enemy(const Enemy &);
 	Enemy(int hp, std::string const & type);
-	~Enemy();
+	virtual ~Enemy();
 	std::string getType() const;
 	int getHP() const;
 	virtual void takeDamage(int);
@@ -53,4 +53,5 @@ void Enemy::takeDamage(int damage) {
 	if (damage < 1)
 		return ;
 	this->hp -= damage;
+	// std::cout << "hp:" << hp << std::endl;
 }

@@ -2,34 +2,28 @@
 
 #include "Enemy.hpp"
 
-class RadScorpion : virtual public Enemy
+class RadScorpion : public Enemy
 {
-private:
-	int hp;
-	std::string type;
 public:
 	RadScorpion();
 	RadScorpion(const RadScorpion &);
 	RadScorpion(int hp, std::string const & type);
-	~RadScorpion();
+	virtual ~RadScorpion();
 	std::string getType() const;
 	int getHP() const;
 	virtual void takeDamage(int);
 	RadScorpion &operator=(const RadScorpion&);
 };
 
-RadScorpion::RadScorpion() {
-	hp = 80;
-	type = "RadScorpion";
+RadScorpion::RadScorpion() : Enemy(80, "RadScorpion") {
 	std::cout << "* click click click *" << std::endl;
 }
 
-RadScorpion::RadScorpion(const RadScorpion &obj) {
+RadScorpion::RadScorpion(const RadScorpion &obj) : Enemy(obj){
 	// std::cout << "Copy constructor called" << std::endl;
-	*this = obj;
 }
 
-RadScorpion::RadScorpion(int hp, std::string const & type) : hp(hp), type(type) {
+RadScorpion::RadScorpion(int hp, std::string const & type) : Enemy(hp, type) {
 	// std::cout << "HP: " << hp << " Type: " << type << std::endl;
 }
 
@@ -38,21 +32,18 @@ RadScorpion::~RadScorpion() {
 }
 
 RadScorpion &RadScorpion::operator=(const RadScorpion &obj) {
-	type = obj.type;
-	hp = obj.hp;
+	Enemy::operator=(obj);
 	return *this;
 }
 
 std::string RadScorpion::getType() const {
-	return type;
+	return Enemy::getType();
 }
 
 int RadScorpion::getHP() const {
-	return hp;
+	return Enemy::getHP();
 }
 
 void RadScorpion::takeDamage(int damage) {
-	if (damage < 4)
-		return ;
-	this->hp -= damage;
+	Enemy::takeDamage(damage);
 }

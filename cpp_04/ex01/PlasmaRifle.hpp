@@ -2,12 +2,8 @@
 
 #include "AWeapon.hpp"
 
-class PlasmaRifle : virtual public AWeapon
+class PlasmaRifle : public AWeapon
 {
-private:
-	std::string name;
-	int damage;
-	int AP;
 public:
 	PlasmaRifle();
 	PlasmaRifle(const PlasmaRifle &);
@@ -20,11 +16,9 @@ public:
 	PlasmaRifle &operator=(const PlasmaRifle&);
 };
 
-PlasmaRifle::PlasmaRifle() {
+PlasmaRifle::PlasmaRifle() : AWeapon("Plasma Rifle", 5, 21) {
 	// std::cout << "Default constructor called" << std::endl;
-	name = "Plasma Rifle";
-	damage = 21;
-	AP = 5;
+
 }
 
 PlasmaRifle::PlasmaRifle(const PlasmaRifle &obj) {
@@ -41,9 +35,7 @@ PlasmaRifle::~PlasmaRifle() {
 }
 
 PlasmaRifle &PlasmaRifle::operator=(const PlasmaRifle &obj) {
-	name = obj.name;
-	damage = obj.damage;
-	AP = obj.AP;
+	AWeapon::operator=(obj);
 	return *this;
 }
 
@@ -52,9 +44,9 @@ void PlasmaRifle::attack() const {
 }
 
 int PlasmaRifle::getAPCost() const {
-	return AP;
+	return AWeapon::getAPCost();
 }
 
 int PlasmaRifle::getDamage() const {
-	return damage;
+	return AWeapon::getDamage();
 }
