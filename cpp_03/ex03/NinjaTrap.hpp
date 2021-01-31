@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 #include "ClapTrap.hpp"
 
 #define RED "\33[1;31m"

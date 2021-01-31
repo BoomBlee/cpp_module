@@ -1,25 +1,42 @@
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(std::string name) : ClapTrap(100,100,100,100,1,30,20,5,name) {
-	std::cout << GREEN << "FFFFFR4G-TP created" << RESET << std::endl;
+FragTrap &FragTrap::operator=(const FragTrap &obj) {
+	name = obj.name;
+	hitPoints = obj.hitPoints;
+	maxHitPoints = 100;
+	energyPoints = 100;
+	maxEnergyPoints = 100;
+	level = 1;
+	meleeAttackDamage = 30;
+	rangedAttackDamage = 20;
+	armorDamageReduction = 5;
+	return *this;
 }
 
-FragTrap::FragTrap(unsigned int hitPoints, unsigned int maxHitPoints, unsigned int energyPoints, unsigned int maxEnergyPoints, unsigned int level, unsigned int meleeAttackDamage, unsigned int rangedAttackDamage, unsigned int armorDamageReduction, std::string name)
- : ClapTrap(hitPoints,maxHitPoints,energyPoints,maxEnergyPoints,level,meleeAttackDamage,rangedAttackDamage,armorDamageReduction,name) {
-	std::cout << name << " created" << std::endl;
+FragTrap::FragTrap(std::string name) : name(name)
+{
+	hitPoints = 100;
+	maxHitPoints = 100;
+	energyPoints = 100;
+	maxEnergyPoints = 100;
+	level = 1;
+	meleeAttackDamage = 30;
+	rangedAttackDamage = 20;
+	armorDamageReduction = 5;
+	std::cout << "FR4G-TP created" << std::endl;
 }
 
 FragTrap::FragTrap() {
-	this->hitPoints = 100;
-	this->maxHitPoints = 100;
-	this->energyPoints = 100;
-	this->maxEnergyPoints = 100;
-	this->level = 1;
-	this->meleeAttackDamage = 30;
-	this->rangedAttackDamage = 20;
-	this->armorDamageReduction = 5;
-	this->name = "name";
-	std::cout << GREEN << "FR4G-TP created" << RESET << std::endl;
+	name = "Железяка";
+	hitPoints = 100;
+	maxHitPoints = 100;
+	energyPoints = 100;
+	maxEnergyPoints = 100;
+	level = 1;
+	meleeAttackDamage = 30;
+	rangedAttackDamage = 20;
+	armorDamageReduction = 5;
+	std::cout << "FR4G-TP created" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap &obj) {
@@ -28,7 +45,7 @@ FragTrap::FragTrap(const FragTrap &obj) {
 }
 
 FragTrap::~FragTrap() {
-	std::cout << RED << "FR4G-TP destroy" << RESET << std::endl;
+	std::cout << "FR4G-TP destroy" << std::endl;
 }
 
 void FragTrap::rangedAttack(std::string const & target) {
@@ -79,9 +96,4 @@ void FragTrap::vaulthunter_dot_exe(std::string const & target) {
 	else {
 		std::cout << "Crap, no more shots left!" << RESET <<std::endl;
 	}
-}
-
-FragTrap &FragTrap::operator=(const FragTrap &obj) {
-	ClapTrap::operator=(obj);
-	return *this;
 }

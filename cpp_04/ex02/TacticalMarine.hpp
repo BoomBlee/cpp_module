@@ -16,8 +16,8 @@ public:
 	ISpaceMarine &operator=(const TacticalMarine&obj);// {*this=obj; return *this;}
 };
 
-TacticalMarine &TacticalMarine::operator=(const TacticalMarine &obj) {
-	// *this = obj;
+ISpaceMarine &TacticalMarine::operator=(const TacticalMarine &obj) {
+	(void)obj;
 	return *this;
 }
 

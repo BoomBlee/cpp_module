@@ -56,10 +56,10 @@ void ScavTrap::beRepaired(unsigned int amount) {
 }
 
 void ScavTrap::challengeNewcomer(std::string const & target) {
-	std::string str[] = {"Build Large Hadron Collider", "teach the rabbit to fly", "Shoot This Guy in the Face", "help bald man grow hair", "not invented yet"};
+	std::string str[] = {"Build Large Hadron Collider ", "teach the rabbit to fly ", "Shoot This Guy in the Face ", "help bald man grow hair ", "not invented yet "};
 	if (energyPoints - 25 >= 0) {
 		energyPoints -= 25;
-		std::cout << str[rand() % 5] << std::endl;
+		std::cout << str[rand() % 5] << target << std::endl;
 	}
 	else {
 		std::cout << "low energy points" <<std::endl;

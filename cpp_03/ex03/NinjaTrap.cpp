@@ -70,3 +70,36 @@ void NinjaTrap::ninjaShoebox(const FragTrap & trap) {
 		std::cout << "low energy points" <<std::endl;
 	}
 }
+
+void NinjaTrap::ninjaShoebox(const ScavTrap & trap) {
+	std::string str[] = {"Пугает ", "Убегает от ", "Играет в догонялки с "};
+	if (energyPoints - 25 >= 0) {
+		energyPoints -= 25;
+		std::cout << str[rand() % 3] << trap.getName() <<std::endl;
+	}
+	else {
+		std::cout << "low energy points" <<std::endl;
+	}
+}
+
+void NinjaTrap::ninjaShoebox(const ClapTrap & trap) {
+	std::string str[] = {"Пугает ", "Убегает от ", "Играет в догонялки с "};
+	if (energyPoints - 25 >= 0) {
+		energyPoints -= 25;
+		std::cout << str[rand() % 3] << trap.getName() <<std::endl;
+	}
+	else {
+		std::cout << "low energy points" <<std::endl;
+	}
+}
+
+void NinjaTrap::ninjaShoebox(const NinjaTrap & trap) {
+	std::string str[] = {"Пугает ", "Убегает от ", "Играет в догонялки с "};
+	if (energyPoints - 25 >= 0) {
+		energyPoints -= 25;
+		std::cout << str[rand() % 3] << trap.getName() <<std::endl;
+	}
+	else {
+		std::cout << "low energy points" <<std::endl;
+	}
+}

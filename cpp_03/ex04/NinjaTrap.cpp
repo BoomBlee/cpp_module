@@ -14,16 +14,8 @@ NinjaTrap::NinjaTrap(std::string name) {
 	std::cout << GREEN << "NinjaTrap created" << RESET << std::endl;
 }
 
-NinjaTrap::NinjaTrap(unsigned int hitPoints, unsigned int maxHitPoints, unsigned int energyPoints, unsigned int maxEnergyPoints, unsigned int level, unsigned int meleeAttackDamage, unsigned int rangedAttackDamage, unsigned int armorDamageReduction, std::string name){
-	this->hitPoints = 60;
-	this->maxHitPoints = 60;
-	this->energyPoints = 120;
-	this->maxEnergyPoints = 120;
-	this->level = level;
-	this->meleeAttackDamage = 60;
-	this->rangedAttackDamage = 5;
-	this->armorDamageReduction = 0;
-	this->name = name;
+NinjaTrap::NinjaTrap(unsigned int hitPoints, unsigned int maxHitPoints, unsigned int energyPoints, unsigned int maxEnergyPoints, unsigned int level, unsigned int meleeAttackDamage, unsigned int rangedAttackDamage, unsigned int armorDamageReduction, std::string name)
+ : ClapTrap(hitPoints,maxHitPoints,energyPoints,maxEnergyPoints,level,meleeAttackDamage,rangedAttackDamage,armorDamageReduction,name) {
 	std::cout << name << " created" << std::endl;
 }
 
@@ -87,7 +79,45 @@ void NinjaTrap::beRepaired(unsigned int amount) {
 	}
 }
 
+NinjaTrap &NinjaTrap::operator=(const NinjaTrap &obj) {
+	ClapTrap::operator=(obj);
+	return *this;
+}
+
 void NinjaTrap::ninjaShoebox(const FragTrap & trap) {
+	std::string str[] = {"Пугает ", "Убегает от ", "Играет в догонялки с "};
+	if (energyPoints - 25 >= 0) {
+		energyPoints -= 25;
+		std::cout << str[rand() % 3] << trap.getName() <<std::endl;
+	}
+	else {
+		std::cout << "low energy points" <<std::endl;
+	}
+}
+
+void NinjaTrap::ninjaShoebox(const ScavTrap & trap) {
+	std::string str[] = {"Пугает ", "Убегает от ", "Играет в догонялки с "};
+	if (energyPoints - 25 >= 0) {
+		energyPoints -= 25;
+		std::cout << str[rand() % 3] << trap.getName() <<std::endl;
+	}
+	else {
+		std::cout << "low energy points" <<std::endl;
+	}
+}
+
+void NinjaTrap::ninjaShoebox(const ClapTrap & trap) {
+	std::string str[] = {"Пугает ", "Убегает от ", "Играет в догонялки с "};
+	if (energyPoints - 25 >= 0) {
+		energyPoints -= 25;
+		std::cout << str[rand() % 3] << trap.getName() <<std::endl;
+	}
+	else {
+		std::cout << "low energy points" <<std::endl;
+	}
+}
+
+void NinjaTrap::ninjaShoebox(const NinjaTrap & trap) {
 	std::string str[] = {"Пугает ", "Убегает от ", "Играет в догонялки с "};
 	if (energyPoints - 25 >= 0) {
 		energyPoints -= 25;

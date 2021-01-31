@@ -69,3 +69,16 @@ ClapTrap::ClapTrap(unsigned int hitPoints, unsigned int maxHitPoints, unsigned i
 	this->name = name;
 	std::cout << name << " created" << std::endl;
 }
+
+ClapTrap &ClapTrap::operator=(const ClapTrap &obj) {
+	this->name = obj.name;
+	this->hitPoints = obj.hitPoints;
+	this->maxHitPoints = obj.maxHitPoints;
+	this->energyPoints = obj.energyPoints;
+	this->maxEnergyPoints = obj.maxEnergyPoints;
+	this->level = obj.level;
+	this->meleeAttackDamage = obj.meleeAttackDamage;
+	this->rangedAttackDamage = obj.rangedAttackDamage;
+	this->armorDamageReduction = obj.armorDamageReduction;
+	return *this;
+}

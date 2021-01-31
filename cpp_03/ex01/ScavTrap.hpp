@@ -23,6 +23,7 @@ private:
 	unsigned int armorDamageReduction;
 public:
 	ScavTrap(std::string name);
+	ScavTrap(const ScavTrap &obj);
 	~ScavTrap();
 	virtual void rangedAttack(std::string const & target);
 	virtual void meleeAttack(std::string const & target);

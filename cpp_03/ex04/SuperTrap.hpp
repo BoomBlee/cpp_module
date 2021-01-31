@@ -26,20 +26,3 @@ public:
 	void vaulthunter_dot_exe(std::string const & target);
 	SuperTrap &operator=(const SuperTrap &obj);
 };
-
-SuperTrap &SuperTrap::operator=(const SuperTrap &obj) {
-	ClapTrap::operator=(obj);
-	return *this;
-}
-
-SuperTrap::SuperTrap(std::string name) : NinjaTrap("1"), ClapTrap(name) {
-	this->hitPoints = FragTrap::hitPoints;
-	this->maxHitPoints = FragTrap::maxHitPoints;
-	this->energyPoints = NinjaTrap::energyPoints;
-	this->maxEnergyPoints = NinjaTrap::maxEnergyPoints;
-	this->level = 1;
-	this->meleeAttackDamage = NinjaTrap::meleeAttackDamage;
-	this->rangedAttackDamage = FragTrap::rangedAttackDamage;
-	this->armorDamageReduction = FragTrap::armorDamageReduction;
-	std::cout << GREEN << "SuperTrap created" << RESET << std::endl;
-}

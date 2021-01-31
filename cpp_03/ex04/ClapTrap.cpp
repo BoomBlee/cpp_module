@@ -10,6 +10,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &obj) {
 	this->meleeAttackDamage = obj.meleeAttackDamage;
 	this->rangedAttackDamage = obj.rangedAttackDamage;
 	this->armorDamageReduction = obj.armorDamageReduction;
+	return *this;
 }
 
 ClapTrap::ClapTrap(std::string name) : name(name)

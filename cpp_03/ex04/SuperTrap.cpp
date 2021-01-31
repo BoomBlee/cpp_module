@@ -52,12 +52,22 @@ void SuperTrap::beRepaired(unsigned int amount) {
 }
 
 void SuperTrap::vaulthunter_dot_exe(std::string const & target) {
-	std::string str[] = {"1", "2", "3", "4", "5"};
-	if (energyPoints - 25 >= 0) {
-		energyPoints -= 25;
-		std::cout << str[rand() % 5] << std::endl;
-	}
-	else {
-		std::cout << "low energy points" <<std::endl;
-	}
+	FragTrap::vaulthunter_dot_exe(target);
+}
+
+SuperTrap &SuperTrap::operator=(const SuperTrap &obj) {
+	ClapTrap::operator=(obj);
+	return *this;
+}
+
+SuperTrap::SuperTrap(std::string name) : ClapTrap(name) {
+	this->hitPoints = 100;
+	this->maxHitPoints = 100;
+	this->energyPoints = 120;
+	this->maxEnergyPoints = 120;
+	this->level = 1;
+	this->meleeAttackDamage = 60;
+	this->rangedAttackDamage = 20;
+	this->armorDamageReduction = 5;
+	std::cout << GREEN << "SuperTrap created" << RESET << std::endl;
 }

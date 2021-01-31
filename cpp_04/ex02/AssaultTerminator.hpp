@@ -6,30 +6,32 @@
 class AssaultTerminator : public ISpaceMarine
 {
 public:
-	AssaultTerminator(){std::cout << "* teleports from space *" << std::endl;}
+	AssaultTerminator();
 	AssaultTerminator(const AssaultTerminator &obj);
-	virtual ~AssaultTerminator() {std::cout << "I’ll be back..." << std::endl;}
+	virtual ~AssaultTerminator();
 	ISpaceMarine* clone() const {return new AssaultTerminator(*this);};
 	void battleCry() const;
 	void rangedAttack() const;
 	void meleeAttack() const;
-	ISpaceMarine &operator=(const AssaultTerminator&obj) {*this=obj; return *this;}
+	ISpaceMarine &operator=(const AssaultTerminator &obj);
 };
 
-// ISpaceMarine &AssaultTerminator::operator=(const AssaultTerminator &obj) {
-// 	// *this = obj;
-// 	return *this;
-// }
+AssaultTerminator::AssaultTerminator() {
+	std::cout << "* teleports from space *" << std::endl;
+}
+
+AssaultTerminator::~AssaultTerminator() {
+	std::cout << "I’ll be back..." << std::endl;
+}
+
+ISpaceMarine &AssaultTerminator::operator=(const AssaultTerminator &obj) {
+	(void)obj;
+	return *this;
+}
 
 AssaultTerminator::AssaultTerminator(const AssaultTerminator &obj) {
 	*this = obj;
 }
-
-// ISpaceMarine* clone() const {
-// 	ISpaceMarine* clone = new AssaultTerminator;
-// 	// clone = this;
-// 	return clone;
-// }
 
 void AssaultTerminator::battleCry() const {
 	std::cout << "This code is unclean. PURIFY IT!" << std::endl;

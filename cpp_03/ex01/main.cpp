@@ -1,30 +1,7 @@
-#include "ClapTrap.hpp"
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
-#include "NinjaTrap.hpp"
 
 int		main() {
-	std::cout << "-----------------------------------------------------------------------------------------------------------------------|----" << std::endl;
-	{
-		std::cout << "New ClapTrap: " << std::endl << std::endl;
-		ClapTrap	clap("Sid");
-
-		std::cout << std::endl << "Attacks: " << std::endl << std::endl;
-		clap.meleeAttack("Manny");
-		clap.rangedAttack("Diego");
-
-		std::cout << std::endl << "Take Damage: " << std::endl << std::endl;
-		clap.takeDamage(10);
-		clap.takeDamage(60);
-		clap.takeDamage(1000);
-		clap.takeDamage(10);
-
-		std::cout << std::endl << "Repairs: " << std::endl << std::endl;
-		clap.beRepaired(101);
-		clap.beRepaired(5);
-
-		std::cout << std::endl << "Destroing: " << std::endl << std::endl;
-	}
 	srand(time(NULL));
 	std::cout << "-----------------------------------------------------------------------------------------------------------------------|----" << std::endl;
 	{
@@ -80,37 +57,6 @@ int		main() {
 		clap.challengeNewcomer("target 3");
 		clap.challengeNewcomer("target 4");
 		clap.challengeNewcomer("target 5");
-
-		std::cout << std::endl << "Destroing: " << std::endl << std::endl;
-	}
-	std::cout << "-----------------------------------------------------------------------------------------------------------------------|----" << std::endl;
-	{
-		std::cout << "New NinjaTrap: " << std::endl << std::endl;
-		NinjaTrap	ninja("Naruto");
-		FragTrap	frag("Frag");
-		ScavTrap	scav("Scav");
-		ClapTrap	clap("Clap");
-		NinjaTrap	ninja1("Ninja");
-
-		std::cout << std::endl << "Attacks: " << std::endl << std::endl;
-		ninja.meleeAttack("Madara");
-		ninja.rangedAttack("Sasuke");
-
-		std::cout << std::endl << "Take Damage: " << std::endl << std::endl;
-		ninja.takeDamage(10);
-		ninja.takeDamage(60);
-		ninja.takeDamage(1000);
-		ninja.takeDamage(10);
-
-		std::cout << std::endl << "Repairs: " << std::endl << std::endl;
-		ninja.beRepaired(101);
-		ninja.beRepaired(5);
-
-		std::cout << std::endl << "Shoebox: " << std::endl << std::endl;
-		ninja.ninjaShoebox(frag);
-		ninja.ninjaShoebox(scav);
-		ninja.ninjaShoebox(clap);
-		ninja.ninjaShoebox(ninja1);
 
 		std::cout << std::endl << "Destroing: " << std::endl << std::endl;
 	}

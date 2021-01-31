@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 #include "ClapTrap.hpp"
 
 #define RED "\33[1;31m"
@@ -29,8 +30,3 @@ public:
 	void ninjaShoebox(const NinjaTrap &);
 	NinjaTrap &operator=(const NinjaTrap &obj);
 };
-
-NinjaTrap &NinjaTrap::operator=(const NinjaTrap &obj) {
-	ClapTrap::operator=(obj);
-	return *this;
-}
