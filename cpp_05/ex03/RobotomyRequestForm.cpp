@@ -18,3 +18,8 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
 	else
 		throw robotomizedFail();
 }
+
+RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &obj) {
+	Form::operator=(obj);
+	return *this;
+}

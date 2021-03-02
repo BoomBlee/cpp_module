@@ -13,4 +13,5 @@ public:
 	~ShrubberyCreationForm();
 	virtual void execute(Bureaucrat const & executor) const;
 	class openFileException : public std::exception {virtual const char* what() const throw();};
+	ShrubberyCreationForm &operator=(const ShrubberyCreationForm &);
 };

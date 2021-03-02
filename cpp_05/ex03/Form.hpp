@@ -24,4 +24,5 @@ public:
 	void checkBureaucrat(const Bureaucrat &) const;
 	size_t getExecute() const;
 	virtual void execute(Bureaucrat const & executor) const = 0;
+	Form &operator=(Form const &);
 };

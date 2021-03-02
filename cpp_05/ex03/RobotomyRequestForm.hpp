@@ -12,4 +12,5 @@ public:
 	~RobotomyRequestForm();
 	virtual void execute(Bureaucrat const & executor) const ;
 	class robotomizedFail : public std::exception {virtual const char* what() const throw();};
+	RobotomyRequestForm &operator=(const RobotomyRequestForm &);
 };

@@ -55,3 +55,8 @@ void Form::checkBureaucrat(const Bureaucrat &obj) const {
 	if (sign == false)
 		throw unsignedForm();
 }
+
+Form &Form::operator=(Form const &obj) {
+	this->sign = obj.sign;
+	return *this;
+}

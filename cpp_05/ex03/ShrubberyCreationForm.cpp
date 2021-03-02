@@ -96,3 +96,8 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 	fd << tree[rand() % 3];
 	fd.close();
 }
+
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &obj) {
+	Form::operator=(obj);
+	return *this;
+}

@@ -20,53 +20,14 @@ class Intern
 {
 private:
 	static const std::string nameForms[3];
-	static Form *(*forms[3])(std::string target);
+	Form *(Intern::*forms[3])(std::string);
 public:
 	Intern(/* args */);
 	~Intern();
-	Form *createShrubberyCreation(std::string);
-	Form *createRobotomyRequest(std::string);
-	Form *createPresidentialPardon(std::string);
-	Form *makeForm(std::string, std::string);
+	Form *createShrubberyCreation(const std::string);
+	Form *createRobotomyRequest(const std::string);
+	Form *createPresidentialPardon(const std::string);
+	Form *makeForm(const std::string, const std::string);
 	class noFoundForm : public std::exception {virtual const char* what() const throw();};
+	Intern &operator=(Intern const &);
 };
-
-const std::string Intern::nameForms[3] = {"Shrubbery Creation", "Robotomy Request", "Presidential Pardon"};
-Form *(Intern::*forms[3])(std::string target) = {&Intern::createShrubberyCreation, &Intern::createRobotomyRequest, &Intern::createPresidentialPardon};
-
-Intern::Intern(/* args */)
-{
-}
-
-Intern::~Intern()
-{
-}
-
-Form* Intern::makeForm(std::string name, std::string target) {
-	for(int i=0; i < 3; i++)
-		if (this->nameForms[i] == name) {
-			Form *form = (this->forms[i])(target);
-			std::cout << "Intern creates " << name << "Form" << std::endl;
-			return form;
-		}
-	throw noFoundForm();
-}
-
-Form* Intern::createShrubberyCreation(std::string target) {
-	Form *form = new ShrubberyCreationForm(target);
-	return form;
-}
-
-Form* Intern::createRobotomyRequest(std::string target) {
-	Form *form = new RobotomyRequestForm(target);
-	return form;
-}
-
-Form* Intern::createPresidentialPardon(std::string target) {
-	Form *form = new PresidentialPardonForm(target);
-	return form;
-}
-
-const char* Intern::noFoundForm::what() const throw() {
-	return "No found form";
-}
