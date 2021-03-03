@@ -135,5 +135,5 @@ void Convert::findType() {
 }
 
 const char* Convert::errorType::what() const throw() {
-	return "Invalid Argument";
+	return "❌Invalid Argument";
 }

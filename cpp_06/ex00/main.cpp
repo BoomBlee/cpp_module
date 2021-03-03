@@ -14,11 +14,11 @@
 
 int main(int ac, char** av) {
 	if (ac == 1) {
-		std::cout << RED << "ERROR: " << YELLOW << "no argument" << RESET << std::endl;
+		std::cout << "❌" << RED << "ERROR: " << YELLOW << "no argument" << RESET << std::endl;
 		return 1;
 	}
 	else if (ac > 2) {
-		std::cout << RED << "ERROR: " << YELLOW << "to many arguments" << RESET << std::endl;
+		std::cout << "❌" << RED << "ERROR: " << YELLOW << "to many arguments" << RESET << std::endl;
 		return 1;
 	}
 	try {

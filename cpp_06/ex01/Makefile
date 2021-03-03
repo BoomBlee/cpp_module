@@ -1,19 +1,19 @@
-NAME = Convert
+NAME = Serialization
 
 CC = clang++
 CFLAGS = -std=c++98 -Wall -Wextra -Werror
 
 FILE = \
-Convert \
+function \
 main
 
 SRCS = $(addsuffix .cpp, $(FILE))
 
 all: $(NAME)
 
-$(NAME): Convert.hpp $(SRCS)
+$(NAME): function.hpp $(SRCS)
 	@$(CC) -g $(FLAGS) $(SRCS) -o $(NAME)
-	@echo "\033[1;32m Convert created\033[0m"
+	@echo "\033[1;32m Serialization created\033[0m"
 
 clean:
 	@rm -rf $(NAME).dSYM

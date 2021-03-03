@@ -26,7 +26,6 @@ class Convert
 private:
 	short int type;
 	std::string str;
-
 public:
 	Convert(std::string);
 	~Convert();
