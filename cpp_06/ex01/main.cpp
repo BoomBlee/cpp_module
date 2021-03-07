@@ -15,10 +15,8 @@
 
 int main() {
 	srand(time(NULL));
-	
 
 	void *raw = serialize();
-
 	Data *data = deserialize(raw);
 
 	std::cout << "---------------------------" << std::endl;
@@ -26,5 +24,9 @@ int main() {
 	std::cout << BLUE << "n:" << RESET << data->n << std::endl;
 	std::cout << YELLOW << "s2:" << RESET << data->s2 << std::endl;
 	std::cout << "---------------------------" << std::endl;
+
+	delete raw;
+	delete data;
+
     return 0;
 }
