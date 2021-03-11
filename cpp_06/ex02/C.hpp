@@ -7,8 +7,5 @@ class C : public Base
 private:
 	/* data */
 public:
-	virtual ~C();
+	virtual ~C(){};
 };
-
-C::~C(){
-}

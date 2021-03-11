@@ -32,8 +32,9 @@ public:
 };
 
 template <typename T>
-Array<T>::Array() : len(0), mass(nullptr)
+Array<T>::Array() : len(0)//, mass(nullptr)
 {
+	this->mass = new T[0];
 }
 
 template <typename T>
@@ -53,7 +54,6 @@ Array<T>::Array(Array& obj) {
 
 template <typename T>
 T &Array<T>::operator[](const unsigned int index){
-
 	if (index < 0 || index >= len)
 		throw invalidIndex();
 	return mass[index];

@@ -7,6 +7,7 @@ int main() {
 
 		Array<int> arrInt(10);
 
+
 		for (unsigned int i=0; i < arrInt.size(); ++i)
 			arrInt[i] = i;
 

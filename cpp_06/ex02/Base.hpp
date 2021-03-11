@@ -5,7 +5,5 @@ class Base
 private:
 	/* data */
 public:
-	virtual ~Base();
+	virtual ~Base(){};
 };
-
-Base::~Base() {}

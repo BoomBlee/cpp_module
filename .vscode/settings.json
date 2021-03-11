@@ -65,6 +65,7 @@
 		"iomanip": "cpp",
 		"stack": "cpp",
 		"__functional_base_03": "cpp",
-		"filesystem": "cpp"
+		"filesystem": "cpp",
+		"list": "cpp"
 	}
 }

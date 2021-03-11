@@ -16,6 +16,7 @@ int main() {
 		std::cout << "test 1" << std::endl;
 		form->execute(bur);
 		std::cout << "test 2" << std::endl;
+		delete form;
 	}
 	catch (const std::exception &e) {
 		std::cout << RED << e.what() << RESET << std::endl;

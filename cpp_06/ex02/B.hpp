@@ -7,8 +7,6 @@ class B : public Base
 private:
 	/* data */
 public:
-	virtual ~B();
+	virtual ~B(){};
 };
 
-B::~B(){
-}

@@ -25,7 +25,7 @@ int main() {
 	std::cout << YELLOW << "s2:" << RESET << data->s2 << std::endl;
 	std::cout << "---------------------------" << std::endl;
 
-	delete raw;
+	delete reinterpret_cast<char*>(raw);
 	delete data;
 
     return 0;

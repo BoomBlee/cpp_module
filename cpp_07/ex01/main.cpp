@@ -1,12 +1,12 @@
 #include "iter.hpp"
 
 int main() {
-	char arrChar[8] = {'1', '2', '3', '4', '5', '6', '7', '8'};
+	char arrChar[] = {'a', 'b', 'c', 'd', 'e', 'f', 'h'};
 	int arrInt[] = { 0, 1, 2, 3, 4 };
 
-	func(arrChar, 8, &f);
+	func(arrChar, 7, &f);
 	std::cout << "-------------------------" << std::endl;
-	func(arrChar, 5, &f);
+	func(arrInt, 5, &f);
 
 	return 0;
 }
